@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "dependencies": {
+    "modle": "^1.0.0",
+    "node": "^10.8.0",
+    "todomvc-app-css": "^2.0.0",
+    "todomvc-common": "^1.0.0"
+  },
+  "name": "todo-vue",
+  "description": "> Template used for creating [TodoMVC](http://todomvc.com) apps",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
