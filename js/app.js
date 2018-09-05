@@ -11,7 +11,7 @@
 			todos: todos,
 			text: '',
 			isCompleted: false,
-			editing: true
+			editedTodo:null
 		},
 		filters:{
 			all:function () {
@@ -41,10 +41,32 @@
 				});
 				this.todos.splice(todoIndex,1)
 			},
-			edit:function () {
-				this.$nextTick(function () {
-					this.input.focus()
-				})
+			editTodo:function (todo){
+				this.beforeEditCache=todo.text;
+				this.editedTodo=todo;
+			},
+			doneEdit:function (todo) {
+				if(!this.editedTodo){
+					return ;
+				}
+				this.editedTodo=null;
+				todo.text=todo.text.trim();
+				if(!todo.text){
+					this.del(todo)
+				}
+			},
+			cancelEdit:function (todo) {
+				this.editedTodo=null;
+				todo.text=this.beforeEditCache
+			}
+
+
+		},
+		directives:{
+			'todo-focus':function (el,binding) {
+				if(binding.value){
+					el.focus()
+				}
 			}
 		}
 

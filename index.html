@@ -30,13 +30,13 @@
 						<!--</div>-->
 						<!--<input class="edit" value="Create a TodoMVC template">-->
 					<!--</li>-->
-					<li v-for="todo in todos" :class="{completed:todo.Completed}">
+					<li v-for="todo in todos" :class="{completed:todo.Completed,editing:todo=editedTodo}">
 						<div class="view"  >
 							<input  class="toggle" type="checkbox"   v-model="todo.Completed" >
-							<label @dblclick="edit(todo)" >{{ todo.text  }}</label>
+							<label @dblclick="editTodo(todo)" >{{ todo.text  }}</label>
 							<button class="destroy" @click="del(todo.text)"></button>
 						</div>
-						<input v-model="todo.text" class="edit" value="Rule the web" @dblclick="edit">
+						<input v-model="todo.text" class="edit" v-todo-focus="todo==editTodo" @keyup.enter="doneEdit(todo)" @keyup.esc="cancleEdit(todo)" @blur="doneEdit(todo)" value="Rule the web" >
 					</li>
 				</ul>
 			</section>
