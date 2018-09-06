@@ -3,7 +3,8 @@
 	var todos=[];
 
 	console.log(todos);
-	//noinspection JSAnnotator
+	//noinspection
+
 
 	var app=new Vue({
 		el:"#app",
@@ -57,10 +58,10 @@
 
 
 		},
-		directives:{
+		directives:{   //添加全局资源
 			'todo-focus':function (el,binding) {
 				if(binding.value){
-					el.focus();
+					el.focus();    //鼠标移动到其它地方并点击编辑状态消失
 				}
 			}
 		}
