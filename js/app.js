@@ -7,16 +7,11 @@
 
 	var app=new Vue({
 		el:"#app",
-		data:{
+		data: {
 			todos: todos,
 			text: '',
 			isCompleted: false,
-			editedTodo:null
-		},
-		filters:{
-			all:function () {
-			}
-
+			editedTodo: null
 		},
 		methods:{
 			f:function () {
@@ -57,7 +52,7 @@
 			},
 			cancelEdit:function (todo) {
 				this.editedTodo=null;
-				todo.text=this.beforeEditCache
+				todo.text=this.beforeEditCache;
 			}
 
 
@@ -65,7 +60,7 @@
 		directives:{
 			'todo-focus':function (el,binding) {
 				if(binding.value){
-					el.focus()
+					el.focus();
 				}
 			}
 		}

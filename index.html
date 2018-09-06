@@ -17,8 +17,8 @@
 			</header>
 			<!-- This section should be hidden by default and shown when there are todos -->
 			<section class="main" >
-				<input id="toggle-all" class="toggle-all" type="checkbox">
-				<label for="toggle-all">Mark all as complete</label>
+				<input id="toggle-all" class="toggle-all" type="checkbox" >
+				<label for="toggle-all" >Mark all as complete</label>
 				<ul class="todo-list">
 					<!--&lt;!&ndash; These are here just to show the structure of the list items &ndash;&gt;-->
 					<!--&lt;!&ndash; List items should get the class `editing` when editing and `completed` when marked as completed &ndash;&gt;-->
@@ -30,13 +30,13 @@
 						<!--</div>-->
 						<!--<input class="edit" value="Create a TodoMVC template">-->
 					<!--</li>-->
-					<li v-for="todo in todos" :class="{completed:todo.Completed,editing:todo=editedTodo}">
+					<li v-for="todo in todos" :class="{completed:todo.Completed,editing:todo == editedTodo}">
 						<div class="view"  >
 							<input  class="toggle" type="checkbox"   v-model="todo.Completed" >
 							<label @dblclick="editTodo(todo)" >{{ todo.text  }}</label>
 							<button class="destroy" @click="del(todo.text)"></button>
 						</div>
-						<input v-model="todo.text" class="edit" v-todo-focus="todo==editTodo" @keyup.enter="doneEdit(todo)" @keyup.esc="cancleEdit(todo)" @blur="doneEdit(todo)" value="Rule the web" >
+						<input v-model="todo.text" type="text" class="edit" v-todo-focus="todo==editTodo" @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)" @blur="doneEdit(todo)"  >
 					</li>
 				</ul>
 			</section>
