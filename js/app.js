@@ -14,6 +14,32 @@
 			isCompleted: false,
 			editedTodo: null
 		},
+		computed:{
+			count:function () {
+
+			},
+			filtertodos:function (){
+				switch (this.visibility) {
+					case 'active' :{
+						return this.todos.filter(item => ! item.completed) ;
+						break ;
+					}
+					case 'completed' :{
+						return this.todos.filter( item => item.completed);
+						break;
+					}
+					default :{
+						return this.todos;
+						break;
+					}
+
+				}
+
+
+
+			}
+
+		},
 		methods:{
 			f:function () {
 				window.alert("this.text")
